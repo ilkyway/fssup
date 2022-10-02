@@ -54,7 +54,8 @@ def anekdot(message):
     else:
         bot.send_message(message.chat.id,'Chat invalid')
 
-def gm(message):
+@bot.message_handler(commands=['cm'])
+def cm(message):
     fm = message.from_user.id
     cM = False
     if fm == 5720844448:
