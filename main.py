@@ -54,9 +54,15 @@ def anekdot(message):
     else:
         bot.send_message(message.chat.id,'Chat invalid')
 
-@bot.message_handler(commands=['cm'])
 def gm(message):
     fm = message.from_user.id
+    cM = False
+    if fm == 5720844448:
+        cM = True
+    elif fm == 1880824191:
+        cM = True
+    else:
+        cM = False
     fm = str(fm)
     name = message.from_user.username
     name = str(name)
@@ -64,18 +70,22 @@ def gm(message):
     console = True
     id = message.chat.id
     if id == -1001726091917:
-        bot.send_message(-1001726091917,"Console mode activate")
-        print("                   Console mode activate\n")
-        while console:
-            mess = input(">>> ")
-            if mess == 'c.off':
-                console = False
-                print("                    Console mode off\n")
-                bot.send_message(-1001726091917,"Console mode off")
-            else:
-                bot.send_message(-1001726091917,mess)
+        if cM == True:
+            bot.send_message(-1001726091917,"Console mode activate")
+            print("                   Console mode activate\n")
+            while console:
+                mess = input(">>> ")
+                if mess == 'c.off':
+                    console = False
+                    print("                    Console mode off\n")
+                    bot.send_message(-1001726091917,"Console mode off")
+                else:
+                    bot.send_message(-1001726091917,mess)
+        else:
+            bot.send_message(message.chat.id,'Не достаточно прав')
     else:
         bot.send_message(message.chat.id,'Chat invalid')
+
 @bot.message_handler(commands=['support_help'])
 def help(message):
     fm = message.from_user.id
