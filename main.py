@@ -36,11 +36,8 @@ def start (message):
     name = message.from_user.username
     name = str(name)
     print("\n/start command user from: " + fm + " nickname: " + name)
-    id = message.chat.id
-    if id == -1001726091917:
-        bot.send_message(message.chat.id,'🤵🏻 Вас приветствует бот Fukk Sleep Support!\n\n🧑🏻‍💻 Я - бот-помощник для этого чата. Посмотреть список моих команд можно командой /support_help')
-    else:
-        bot.send_message(message.chat.id,'Chat invalid')
+    bot.send_message(message.chat.id,'🤵🏻 Вас приветствует бот Fukk Sleep Support!\n\n🧑🏻‍💻 Я - бот-помощник для этого чата. Посмотреть список моих команд можно командой /support_help')
+
 @bot.message_handler(commands=['anekdot'])
 def anekdot(message):
     fm = message.from_user.id
