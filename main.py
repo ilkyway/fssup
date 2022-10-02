@@ -21,7 +21,7 @@ def fun(message):
             bot.send_photo(message.chat.id, photo=open(meme_p, 'rb'))
             time.sleep(10)
         else:
-            video = random.randint(1,21)
+            video = random.randint(1,23)
             video = str(video)
             meme_v = 'media/video/' + video + '.mp4'
             bot.send_video(message.chat.id, video=open(meme_v, 'rb'))
