@@ -23,12 +23,12 @@ def fun(message):
             meme_p = 'media/photo/' + photo + '.jpg'
             bot.send_photo(message.chat.id, photo=open(meme_p, 'rb'))
         elif media == 2:
-            gif = random.randint(1,10)
+            gif = random.randint(1,27)
             gif = str(gif)
             meme_g = 'media/gif/' + gif + '.gif'
             bot.send_document(message.chat.id, document=open(meme_g,'rb'))
         else:
-            video = random.randint(1,38)
+            video = random.randint(1,39)
             video = str(video)
             meme_v = 'media/video/' + video + '.mp4'
             bot.send_video(message.chat.id, video=open(meme_v, 'rb'))
