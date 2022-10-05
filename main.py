@@ -15,10 +15,10 @@ def fun(message):
     name = str(name)
     print("\n/pon command user from: " + fm + " nickname: " + name)
     id = message.chat.id
-    if id == -1001726091917 or -1001703603450:
+    if id == -1001726091917:
         media = random.randint(1,3)
         if media == 1:
-            photo = random.randint(1,39)
+            photo = random.randint(1,40)
             photo = str(photo)
             meme_p = 'media/photo/' + photo + '.jpg'
             bot.send_photo(message.chat.id, photo=open(meme_p, 'rb'))
@@ -28,7 +28,7 @@ def fun(message):
             meme_g = 'media/gif/' + gif + '.gif'
             bot.send_document(message.chat.id, document=open(meme_g,'rb'))
         else:
-            video = random.randint(1,29)
+            video = random.randint(1,38)
             video = str(video)
             meme_v = 'media/video/' + video + '.mp4'
             bot.send_video(message.chat.id, video=open(meme_v, 'rb'))
