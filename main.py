@@ -56,7 +56,7 @@ def fun(message):
     print("\n/pon command user from: " + fm + " nickname: " + name)
     id = message.chat.id
     if id == -1001726091917:
-        if inf_mes == 1:
+        if inf_mes == 10:
             bot.send_message(message.chat.id,'Вы можете так же прислать\nмемы нам, если\nхотите, что бы их\nдобавили в бота\n👇🏻👇🏻👇🏻\nt.me/neol1tic\nt.me/droonka1')
             inf_mes = 0
         else:
