@@ -1,0 +1,1 @@
+Connected to api.telegram.org[:443]: seq=1 time=98.19 ms
