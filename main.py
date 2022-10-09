@@ -63,7 +63,7 @@ def fun(message):
             pass
         media = random.randint(1,3)
         if media == 1:
-            photo = random.randint(1,43)
+            photo = random.randint(1,45)
             photo = str(photo)
             meme_p = 'media/photo/' + photo + '.jpg'
             bot.send_photo(message.chat.id, photo=open(meme_p, 'rb'))
