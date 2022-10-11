@@ -22,7 +22,7 @@ def binf(message):
     name = message.from_user.username
     name = str(name)
     print("\n/botinf command user from: " + fm + " nickname: " + name)
-    bot.send_message(message.chat.id, '<b>Fukk Sleep Bot INFO\nЯзык написания: Python\nКодер:</b> <a href = "t.me/neol1tic"><b>neol1tic</b></a>, <a href = "t.me/drpxqq"><b>drpxqq</b></a>\n<b>Помощники:</b> <a href = "t.me/droonka1"><b>droonka1</b></a>, <a href = "t.me/hataB1ch"><b>hataB1ch</b></a>\n<b>Основание: 28.06.22</b>',parse_mode='HTML', disable_web_page_preview = True)
+    bot.send_message(message.chat.id, '<b>Fukk Sleep Bot INFO\nЯзык написания: Python\nКодеры:</b> <a href = "t.me/neol1tic"><b>neol1tic</b></a>, <a href = "t.me/drpxqq"><b>drpxqq</b></a>\n<b>Помощники:</b> <a href = "t.me/droonka1"><b>droonka1</b></a>, <a href = "t.me/hataB1ch"><b>hataB1ch</b></a>\n<b>Основание: 28.06.22</b>',parse_mode='HTML', disable_web_page_preview = True)
 @bot.message_handler(commands=['coin'])
 def coin(message):
     fm = message.from_user.id
