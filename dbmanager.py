@@ -3,6 +3,7 @@ import datetime
 import time
 import sqlite3 as sql
 class DB:
+	# старый метод для получения золота; не юзай я не тестил ¯\_(ツ)_/¯
 	def loadUser(self, uid):
 		self.conn = sql.connect("users.db")
 		self.cur = self.conn.cursor()
@@ -16,6 +17,7 @@ class DB:
 			gold = 0
 			self.conn.close()
 			return gold
+	# проверка на существование юзера; uid - айди нужного юзера
 	def isUserExist(self, uid):
 		self.conn = sql.connect("users.db")
 		self.cur = self.conn.cursor()
@@ -28,6 +30,7 @@ class DB:
 		except (sql.OperationalError, IndexError) as e:
 			print(e)
 			return False
+	# создание пользователя; uid - айди нужного юзера; дефолт значения: коины = 0
 	def createUser(self, uid):
 		self.conn = sql.connect("users.db")
 		self.cur = self.conn.cursor()
@@ -37,18 +40,28 @@ class DB:
 		self.cur.execute("INSERT INTO users VALUES (?,?)", var)
 		self.conn.commit()
 		self.conn.close()
+	# хуйня не юзай если не знаешь sql
 	def execute(self, datasql):
 		self.conn = sql.connect("users.db")
 		self.cur = self.conn.cursor()
 		self.cur.execute(f"{datasql}")
 		self.conn.commit()
 		self.conn.close()
-	def wGoldVal(self, uid, gold):
+	# замена значения коинов с прибавлением прошлого количества; uid - айди нужного юзера, amount - кол-во коинов 
+	def wGoldVal(self, uid, amount):
 		self.conn = sql.connect("users.db")
 		self.cur = self.conn.cursor()
-		self.cur.execute(f"UPDATE users SET gold=gold+{gold} WHERE uid={uid}")
+		self.cur.execute(f"UPDATE users SET gold=gold+{amount} WHERE uid={uid}")
 		self.conn.commit()
 		self.conn.close()
+	# полная замена значения коинов; uid - айди нужного юзера, amount - кол-во коинов 
+	def waGoldVal(self, uid, amount):
+		self.conn = sql.connect("users.db")
+		self.cur = self.conn.cursor()
+		self.cur.execute(f"UPDATE users SET gold={amount} WHERE uid={uid}")
+		self.conn.commit()
+		self.conn.close()
+	# передача коинов другому человеку; uid - айди отправителя, suid - айди получателя, amount - кол-во коинов 
 	def rwGoldVal(self, uid, suid, amount):
 		self.conn = sql.connect("users.db")
 		self.cur = self.conn.cursor()
@@ -56,6 +69,7 @@ class DB:
 		self.cur.execute(f"UPDATE users SET gold=gold+{amount} WHERE uid={suid}")
 		self.conn.commit()
 		self.conn.close()
+	# читает кол-во коинов; uid - айди нужного юзера
 	def rGoldVal(self, uid):
 		self.conn = sql.connect("users.db")
 		self.cur = self.conn.cursor()
