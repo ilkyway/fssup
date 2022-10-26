@@ -80,3 +80,47 @@ class DB:
 		except (sql.OperationalError, IndexError) as e:
 			return 0
 			print(e)
+
+	def duduread(self, uid):
+		self.conn = sql.connect("cooldown.db")
+		self.cur = self.conn.cursor()
+		try:
+			self.cur.execute(f'SELECT negr FROM cooldown WHERE uid=?',(uid,))
+			return self.cur.fetchall()[0]
+		except (sql.OperationalError,IndexError) as e:
+			print(f"роялдевники тоже негры {e}")
+
+	def duduwrite(self, uid,droonkalox):
+		self.conn = sql.connect("cooldown.db")
+		self.cur = self.conn.cursor()
+		try:
+			self.cur.execute(f'UPDATE cooldown SET negr={droonkalox} WHERE uid={uid}')
+			self.conn.commit()
+		except (sql.OperationalError,IndexError) as e:
+			print(f"роялдевники тоже негры {e}")
+
+	def voloski(self, uid):
+		self.conn = sql.connect("cooldown.db")
+		self.cur = self.conn.cursor()
+		try:
+			self.cur.execute("CREATE TABLE IF NOT EXISTS cooldown (uid INTEGER, negr REAL)")
+			self.conn.commit()
+			var = uid,0.00
+			self.cur.execute("INSERT INTO cooldown VALUES (?,?)",var)
+			self.conn.commit()
+			self.conn.close()
+		except (sql.OperationalError,IndexError) as e:
+			print(f"роялдевники тоже негры {e}")
+
+	def ahahah(self, uid):
+		self.conn = sql.connect("cooldown.db")
+		self.cur = self.conn.cursor()
+		try:
+			self.cur.execute(f'SELECT * FROM cooldown WHERE uid=?',(uid,))
+			fetch = self.cur.fetchall()
+			if len(fetch) > 0:
+				return True
+			self.conn.close()
+		except (sql.OperationalError,IndexError) as e:
+			print(e)
+			return False
